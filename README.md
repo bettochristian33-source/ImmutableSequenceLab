@@ -130,12 +130,18 @@ Measurements were performed in .NET Release mode with a warm-up phase and 10 rep
 
 | List size | Naive average | StringBuilder average | Naive / Builder |
 |---:|---:|---:|---:|
-| 100 | 0.032 ms | 0.010 ms | 3.1x |
-| 1,000 | 2.488 ms | 0.933 ms | 2.7x |
-| 5,000 | 53.270 ms | 0.474 ms | 112.3x |
-| 10,000 | 119.301 ms | 0.389 ms | 306.6x |
-| 20,000 | 888.575 ms | 2.677 ms | 331.9x |
+| 100    | 0.028 ms   | 0.007 ms | 4.0x   |
+| 1,000  | 1.085 ms   | 0.376 ms | 2.9x   |
+| 5,000  | 13.392 ms  | 0.188 ms | 71.1x  |
+| 10,000 | 70.399 ms  | 0.360 ms | 195.7x |
+| 20,000 | 627.252 ms | 0.829 ms | 756.6x |
+### Performance comparison
 
+![Performance comparison](assets/comparaison_performances.png)
+
+### Speedup factor
+
+![Speedup factor](assets/facteur_acceleration.png)
 ### Interpretation
 
 Both implementations produce the same textual result, but their performance diverges as the list grows.
@@ -144,7 +150,7 @@ The naive implementation repeatedly concatenates immutable strings. As the accum
 
 The `StringBuilder` implementation accumulates the output more efficiently and scales much better in this experiment.
 
-At 20,000 elements, the naive implementation was measured at approximately 332 times the execution time of the `StringBuilder` implementation in this benchmark run.
+At 20,000 elements, the naive implementation took approximately 756.6 times as long as the `StringBuilder` implementation in this benchmark run.
 
 These ratios should not be interpreted as universal constants. Actual execution times depend on the runtime environment, hardware, JIT compilation, garbage collection, and other system effects.
 
