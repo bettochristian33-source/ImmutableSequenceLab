@@ -176,3 +176,28 @@ Current test result:
 - 0 failed
 
 Performance measurements are handled separately by the benchmark.
+
+## What I learned
+
+This project helped me understand that algorithmic complexity is not only a theoretical concept.
+
+I learned that:
+
+- two implementations can produce the same correct result while having very different performance characteristics;
+- immutable linked lists can reuse existing nodes through structural sharing;
+- `Push` can run in `O(1)` time because it creates only one new node;
+- operations such as `Count`, `Contains`, and `Reverse` require traversing the list and therefore depend on its size;
+- repeated string concatenation can accidentally create quadratic behavior;
+- `StringBuilder` avoids repeatedly rebuilding increasingly large strings;
+- benchmarks should be interpreted as measurements of a specific environment, not universal constants;
+- correctness tests and performance benchmarks answer different questions;
+- automated tests help verify that optimizations do not change the expected behavior.
+
+
+## References
+
+- Eric Lippert, *Fabulous Adventures in Data Structures and Algorithms*, MEAP Edition Version 6, Chapter 1.
+- Microsoft .NET documentation — `StringBuilder`.
+- Microsoft .NET documentation — `Stopwatch`.
+- xUnit documentation.
+
